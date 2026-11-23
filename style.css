@@ -743,3 +743,195 @@ h2 em {
     min-height: 65vh;
   }
 }
+/* EXILED SOULS — SOFT MONOCHROME THEME */
+
+:root {
+  --bg: #f5f5f5;
+  --surface: #ffffff;
+  --text: #222222;
+  --muted: #777777;
+  --accent: #292929;
+  --border: #e2e2e2;
+}
+
+/* MAIN BACKGROUND */
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  background: #ffffff;
+  border-right: 1px solid #e5e5e5;
+}
+
+.logo-symbol {
+  border-color: #333333;
+  color: #222222;
+}
+
+.logo-text {
+  color: #222222;
+}
+
+.logo-text small,
+.sidebar-label,
+.sidebar-bottom small {
+  color: #888888;
+}
+
+.nav-link {
+  color: #777777;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #111111;
+  background: #f3f3f3;
+  border-left-color: #222222;
+}
+
+.sidebar-quote {
+  color: #333333;
+}
+
+.instagram-link {
+  color: #777777;
+}
+
+/* HEADINGS */
+
+h1,
+h2,
+h3 {
+  color: #222222;
+}
+
+h1 em,
+h2 em {
+  color: #555555;
+}
+
+.eyebrow {
+  color: #666666;
+}
+
+/* BUTTONS */
+
+.primary-button {
+  background: #222222;
+  color: #ffffff;
+}
+
+.primary-button:hover {
+  background: #444444;
+}
+
+.secondary-button {
+  border-color: #333333;
+  color: #333333;
+}
+
+/* NOVEL CARDS */
+
+.novel-card,
+.segment-card,
+.author-card,
+.review-item {
+  background: #ffffff;
+  border-color: #e2e2e2;
+}
+
+.novel-card:hover {
+  border-color: #999999;
+}
+
+.novel-cover {
+  background: #eeeeee;
+}
+
+.cover-placeholder {
+  background: linear-gradient(145deg, #eeeeee, #dcdcdc);
+  color: #333333;
+}
+
+/* NOVEL DETAILS */
+
+.detail-meta,
+.card-rating,
+.novel-info small {
+  color: #555555;
+}
+
+/* SEGMENTS */
+
+.segment-number,
+.segment-card a,
+.text-link {
+  color: #333333;
+}
+
+.segment-download-btn {
+  border-color: #dddddd;
+}
+
+.segment-download-btn:hover {
+  background: #222222;
+  color: #ffffff;
+}
+
+/* AUTHORS */
+
+.author-initial {
+  border-color: #333333;
+  color: #333333;
+}
+
+.author-photo {
+  border-color: #dddddd;
+}
+
+/* REVIEWS */
+
+.review-summary,
+.review-item small {
+  color: #555555;
+}
+
+/* INPUTS */
+
+.search-input,
+.review-form input,
+.review-form textarea,
+.review-form select {
+  background: #ffffff;
+  color: #222222;
+  border-color: #dddddd;
+}
+
+.search-input:focus,
+.review-form input:focus,
+.review-form textarea:focus {
+  border-color: #777777;
+}
+
+/* FOOTER */
+
+.footer h3 {
+  color: #222222;
+}
+
+.footer h3 span {
+  color: #555555;
+}
+
+/* MOBILE MENU */
+
+.menu-toggle {
+  background: #ffffff;
+  color: #222222;
+  border-color: #dddddd;
+}
