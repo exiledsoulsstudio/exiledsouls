@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novel | Exiled Souls Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button class="menu-toggle" id="menuToggle">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="index.html" class="logo">
+    <span class="logo-symbol">ES</span>
+    <span class="logo-text">EXILED SOULS<small>LITERARY STUDIO</small></span>
+  </a>
+  <p class="sidebar-label">NAVIGATION</p>
+  <nav class="side-nav">
+    <a href="index.html" class="nav-link">⌂ &nbsp; Home</a>
+    <a href="novels.html" class="nav-link active">▤ &nbsp; Novels</a>
+    <a href="segments.html" class="nav-link">◫ &nbsp; Segments</a>
+    <a href="index.html#authors" class="nav-link">✧ &nbsp; Authors</a>
+    <a href="index.html#about" class="nav-link">○ &nbsp; About</a>
+  </nav>
+  <div class="sidebar-bottom">
+    <p class="sidebar-quote">Every story<br>leaves a trace.</p>
+    <a class="instagram-link" href="https://www.instagram.com/exiledsouls.studio/" target="_blank" rel="noopener">INSTAGRAM ↗</a>
+    <small>© EXILED SOULS STUDIO</small>
+  </div>
+</aside>
+
+<main class="main-content">
+  <a href="novels.html" class="text-link back-link">← BACK TO NOVELS</a>
+
+  <section id="novelDetails" class="novel-details">
+    <p class="empty-message">Loading novel...</p>
+  </section>
+
+  <section class="section reviews-section">
+    <p class="eyebrow">READERS' THOUGHTS</p>
+    <h2>Reviews &<br><em>ratings.</em></h2>
+
+    <div id="reviewSummary" class="review-summary"></div>
+    <div id="reviewsList" class="reviews-list"></div>
+
+    <h3 class="review-form-heading">Leave a review</h3>
+    <form id="reviewForm" class="review-form">
+      <input id="reviewName" type="text" placeholder="Your name" required maxlength="60">
+      <select id="reviewRating" required>
+        <option value="">Choose rating</option>
+        <option value="5">★★★★★ — 5</option>
+        <option value="4">★★★★ — 4</option>
+        <option value="3">★★★ — 3</option>
+        <option value="2">★★ — 2</option>
+        <option value="1">★ — 1</option>
+      </select>
+      <textarea id="reviewMessage" placeholder="Share your thoughts..." required maxlength="1200"></textarea>
+      <button class="primary-button" type="submit">SUBMIT REVIEW ↗</button>
+      <p id="reviewFeedback" class="form-feedback"></p>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <h3>EXILED SOULS <span>STUDIO</span></h3>
+    <small>© 2026 EXILED SOULS STUDIO</small>
+  </footer>
+</main>
+
+<script type="module" src="novel-detail.js"></script>
+</body>
+</html>

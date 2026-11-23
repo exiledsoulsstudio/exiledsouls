@@ -1,0 +1,508 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Exiled Souls | Admin Studio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #171615;
+            color: #f4eee6;
+            font-family: Georgia, serif;
+            min-height: 100vh;
+        }
+
+        .login-box {
+            width: 90%;
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 35px;
+            background: #242220;
+            border: 1px solid #51443d;
+            border-radius: 12px;
+        }
+
+        h1, h2 {
+            color: #c9a58b;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #aaa09a;
+            margin-bottom: 20px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            background: #171615;
+            border: 1px solid #51443d;
+            color: white;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            padding: 12px 16px;
+            background: #8b5e4b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background: #a8755e;
+        }
+
+        .login-btn {
+            width: 100%;
+        }
+
+        #dashboard {
+            display: none;
+            padding: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #51443d;
+        }
+
+        .logout {
+            background: #49352e;
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .nav button {
+            background: #292624;
+            border: 1px solid #51443d;
+        }
+
+        .nav button.active {
+            background: #8b5e4b;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .panel {
+            background: #242220;
+            border: 1px solid #51443d;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .panel h2 {
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .item {
+            background: #1c1a19;
+            border: 1px solid #51443d;
+            border-radius: 8px;
+            padding: 18px;
+            overflow-wrap: anywhere;
+        }
+
+        .item h3 {
+            color: #d6b49b;
+            margin-bottom: 10px;
+        }
+
+        .item p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .edit-btn {
+            background: #625044;
+        }
+
+        .delete-btn {
+            background: #7b3434;
+        }
+
+        .message {
+            color: #d6b49b;
+            margin-top: 12px;
+            overflow-wrap: anywhere;
+        }
+
+        .empty {
+            color: #aaa09a;
+            padding: 15px 0;
+        }
+
+        .small-note {
+            font-size: 13px;
+            color: #aaa09a;
+        }
+
+        @media (max-width: 600px) {
+            #dashboard {
+                padding: 15px;
+            }
+
+            .panel {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LOGIN -->
+    <div class="login-box" id="loginBox">
+        <h1>Exiled Souls</h1>
+        <p>Private Admin Access</p>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Admin Email"
+            required
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+        >
+
+        <button class="login-btn" id="loginBtn">
+            LOGIN
+        </button>
+
+        <div class="message" id="loginMessage"></div>
+    </div>
+
+
+    <!-- DASHBOARD -->
+    <main id="dashboard">
+
+        <header class="header">
+            <div>
+                <h1>Admin Studio</h1>
+                <p>Manage your literary world.</p>
+            </div>
+
+            <button class="logout" id="logoutBtn">
+                LOGOUT
+            </button>
+        </header>
+
+
+        <!-- NAVIGATION -->
+        <nav class="nav">
+            <button class="active" data-section="novelsSection">
+                Novels
+            </button>
+
+            <button data-section="segmentsSection">
+                Segments
+            </button>
+             <button data-section="authorsSection">
+             Authors
+            </button>
+            <button data-section="reviewsSection">
+                Reviews
+            </button>
+        </nav>
+
+
+        <!-- NOVELS -->
+        <section class="section active" id="novelsSection">
+
+            <div class="panel">
+                <h2>Add / Edit Novel</h2>
+
+                <form id="novelForm">
+
+                    <input type="hidden" id="novelId">
+
+                    <input
+                        type="text"
+                        id="novelTitle"
+                        placeholder="Novel Title"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        id="novelAuthor"
+                        placeholder="Author Name"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        id="novelGenre"
+                        placeholder="Genre"
+                        required
+                    >
+
+                    <select id="novelStatus" required>
+                        <option value="">Select Status</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Ongoing">Ongoing</option>
+                        <option value="Coming Soon">Coming Soon</option>
+                    </select>
+
+                    
+<textarea
+    id="novelDescription"
+    placeholder="Novel Description"
+    required
+></textarea>
+
+<input
+    type="text"
+    id="novelInstagram"
+    placeholder="Author Instagram ID (e.g. @alkashdiaries)"
+>
+
+<input
+    type="url"
+    id="novelCover"
+    placeholder="Cover Image URL"
+>
+
+<input
+    type="url"
+    id="novelLink"
+    placeholder="Novel Reading / Download Link"
+>
+
+
+                    <button type="submit" id="novelSubmit">
+                        ADD NOVEL
+                    </button>
+
+                    <button type="button" id="novelCancel" hidden>
+                        CANCEL EDIT
+                    </button>
+
+                    <div class="message" id="novelMessage"></div>
+                </form>
+            </div>
+
+            <div class="panel">
+                <h2>Your Novels</h2>
+                <div class="grid" id="novelList"></div>
+            </div>
+
+        </section>
+
+
+       
+<!-- SEGMENTS -->
+<section class="section" id="segmentsSection">
+
+    <div class="panel">
+        <h2>Add / Edit Segment</h2>
+
+        <form id="segmentForm">
+
+            <input type="hidden" id="segmentId">
+
+            <input
+                type="text"
+                id="segmentNumber"
+                placeholder="Number (01, 02, 03)"
+                required
+            >
+
+            <input
+                type="text"
+                id="segmentLabel"
+                placeholder="Label"
+                required
+            >
+
+            <input
+                type="text"
+                id="segmentTitle"
+                placeholder="Segment Title"
+                required
+            >
+
+            <textarea
+                id="segmentDescription"
+                placeholder="Description"
+                required
+            ></textarea>
+
+            <!-- SEGMENT PHOTO -->
+            <input
+                type="url"
+                id="segmentPhoto"
+                placeholder="Segment Photo URL (Cloudinary)"
+                required
+            >
+
+            <!-- SEGMENT PDF -->
+            <input
+                type="url"
+                id="segmentPdf"
+                placeholder="Segment PDF Download Link"
+                required
+            >
+
+            <button type="submit" id="segmentSubmit">
+                ADD SEGMENT
+            </button>
+
+            <button type="button" id="segmentCancel" hidden>
+                CANCEL EDIT
+            </button>
+
+            <div class="message" id="segmentMessage"></div>
+
+        </form>
+    </div>
+
+    <div class="panel">
+        <h2>Your Segments</h2>
+        <div class="grid" id="segmentList"></div>
+    </div>
+
+</section>
+      
+<!-- AUTHORS -->
+<section class="section" id="authorsSection">
+
+    <div class="panel">
+        <h2>Add / Edit Author</h2>
+
+        <form id="authorForm">
+            <input type="hidden" id="authorId">
+
+            <input
+                type="text"
+                id="authorName"
+                placeholder="Author Name"
+                required
+            >
+
+            <input
+                type="url"
+                id="authorInstagram"
+                placeholder="Instagram Profile URL"
+                required
+            >
+
+            <input
+                type="url"
+                id="authorPhoto"
+                placeholder="Profile Photo URL (Cloudinary)"
+            >
+
+            <textarea
+                id="authorBio"
+                placeholder="Short Author Bio"
+            ></textarea>
+
+            <button type="submit" id="authorSubmit">
+                ADD AUTHOR
+            </button>
+
+            <button type="button" id="authorCancel" hidden>
+                CANCEL EDIT
+            </button>
+
+            <div class="message" id="authorMessage"></div>
+        </form>
+    </div>
+
+    <div class="panel">
+        <h2>Our Authors</h2>
+        <div class="grid" id="authorList"></div>
+    </div>
+
+</section>
+
+
+
+        <!-- REVIEWS -->
+        <section class="section" id="reviewsSection">
+
+            <div class="panel">
+                <h2>Reader Reviews</h2>
+
+                <p class="small-note">
+                    Read submitted reviews and remove unwanted ones.
+                </p>
+
+                <button id="refreshReviews">
+                    REFRESH REVIEWS
+                </button>
+
+                <div class="message" id="reviewMessage"></div>
+
+                <div class="grid" id="reviewList"></div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script type="module" src="admin.js"></script>
+
+</body>
+</html>

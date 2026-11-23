@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novels | Exiled Souls Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button class="menu-toggle" id="menuToggle">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="index.html" class="logo">
+    <span class="logo-symbol">ES</span>
+    <span class="logo-text">EXILED SOULS<small>LITERARY STUDIO</small></span>
+  </a>
+  <p class="sidebar-label">NAVIGATION</p>
+  <nav class="side-nav">
+    <a href="index.html" class="nav-link">⌂ &nbsp; Home</a>
+    <a href="novels.html" class="nav-link active">▤ &nbsp; Novels</a>
+    <a href="segments.html" class="nav-link">◫ &nbsp; Segments</a>
+    <a href="index.html#authors" class="nav-link">✧ &nbsp; Authors</a>
+    <a href="index.html#about" class="nav-link">○ &nbsp; About</a>
+  </nav>
+  <div class="sidebar-bottom">
+    <p class="sidebar-quote">Every story<br>leaves a trace.</p>
+    <a class="instagram-link" href="https://www.instagram.com/exiledsouls.studio/" target="_blank" rel="noopener">INSTAGRAM ↗</a>
+    <small>© EXILED SOULS STUDIO</small>
+  </div>
+</aside>
+
+<main class="main-content">
+  <section class="page-heading">
+    <p class="eyebrow">THE COLLECTION</p>
+    <h1>Enter another<br><em>world.</em></h1>
+    <p>Discover stories written to be remembered.</p>
+  </section>
+
+  <div class="library-controls">
+    <input id="searchInput" class="search-input" type="search" placeholder="Search novels or authors...">
+    <div class="filters">
+      <button class="filter active" data-filter="all">ALL</button>
+      <button class="filter" data-filter="Mystery">MYSTERY</button>
+      <button class="filter" data-filter="Romance">ROMANCE</button>
+      <button class="filter" data-filter="Fiction">FICTION</button>
+    </div>
+  </div>
+
+  <div class="novel-grid" id="novelGrid">
+    <p class="empty-message">Loading stories...</p>
+  </div>
+
+  <footer class="footer">
+    <h3>EXILED SOULS <span>STUDIO</span></h3>
+    <small>© 2026 EXILED SOULS STUDIO</small>
+  </footer>
+</main>
+
+<script type="module" src="novels.js"></script>
+</body>
+</html>
