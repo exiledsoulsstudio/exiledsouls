@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Novel | Exiled Souls Studio</title>
+  <title>Novels | Exiled Souls Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -33,35 +33,32 @@
 </aside>
 
 <main class="main-content">
-  <a href="novels.html" class="text-link back-link">← BACK TO NOVELS</a>
-
-  <section id="novelDetails" class="novel-details">
-    <p class="empty-message">Loading novel...</p>
+  <section class="page-heading">
+    <p class="eyebrow">THE COLLECTION</p>
+    <h1>Enter another<br><em>world.</em></h1>
+    <p>Discover stories written to be remembered.</p>
   </section>
+<div class="library-controls">
+  <input
+    id="searchInput"
+    class="search-input"
+    type="search"
+    placeholder="Search stories, poems or authors..."
+  >
 
-  <section class="section reviews-section">
-    <p class="eyebrow">READERS' THOUGHTS</p>
-    <h2>Reviews &<br><em>ratings.</em></h2>
+  <div class="filters">
+    <button class="filter active" data-filter="all">ALL</button>
+    <button class="filter" data-filter="Novel">NOVELS</button>
+    <button class="filter" data-filter="Poem">POEMS</button>
+    <button class="filter" data-filter="Article">ARTICLES</button>
+    <button class="filter" data-filter="Novella">NOVELLAS</button>
+    <button class="filter" data-filter="Short Story">SHORT STORIES</button>
+  </div>
+</div>
 
-    <div id="reviewSummary" class="review-summary"></div>
-    <div id="reviewsList" class="reviews-list"></div>
-
-    <h3 class="review-form-heading">Leave a review</h3>
-    <form id="reviewForm" class="review-form">
-      <input id="reviewName" type="text" placeholder="Your name" required maxlength="60">
-      <select id="reviewRating" required>
-        <option value="">Choose rating</option>
-        <option value="5">★★★★★ — 5</option>
-        <option value="4">★★★★ — 4</option>
-        <option value="3">★★★ — 3</option>
-        <option value="2">★★ — 2</option>
-        <option value="1">★ — 1</option>
-      </select>
-      <textarea id="reviewMessage" placeholder="Share your thoughts..." required maxlength="1200"></textarea>
-      <button class="primary-button" type="submit">SUBMIT REVIEW ↗</button>
-      <p id="reviewFeedback" class="form-feedback"></p>
-    </form>
-  </section>
+  <div class="novel-grid" id="novelGrid">
+    <p class="empty-message">Loading stories...</p>
+  </div>
 
   <footer class="footer">
     <h3>EXILED SOULS <span>STUDIO</span></h3>
@@ -69,6 +66,6 @@
   </footer>
 </main>
 
-<script type="module" src="novel-detail.js"></script>
+<script type="module" src="novels.js"></script>
 </body>
 </html>
