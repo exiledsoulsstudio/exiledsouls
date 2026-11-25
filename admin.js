@@ -105,25 +105,6 @@ document.querySelectorAll("[data-section]").forEach(button => {
 });
 
 
-// ================= AUTH STATE =================
-
-onAuthStateChanged(auth, user => {
-    const loginBox = document.getElementById("loginBox");
-    const dashboard = document.getElementById("dashboard");
-
-    if (user) {
-        loginBox.style.display = "none";
-        dashboard.style.display = "block";
-
-        loadNovels();
-        loadSegments();
-        loadReviews();
-    } else {
-        loginBox.style.display = "block";
-        dashboard.style.display = "none";
-    }
-});
-
 
 // ==================================================
 // ====================== NOVELS =====================
@@ -136,6 +117,8 @@ const novelMessage = document.getElementById("novelMessage");
 const novelId = document.getElementById("novelId");
 const novelTitle = document.getElementById("novelTitle");
 const novelAuthor = document.getElementById("novelAuthor");
+const novelType = document.getElementById("novelType");
+const genreContainer = document.getElementById("genreContainer");
 const novelGenre = document.getElementById("novelGenre");
 const novelStatus = document.getElementById("novelStatus");
 
@@ -147,7 +130,18 @@ const novelLink = document.getElementById("novelLink");
 const novelSubmit = document.getElementById("novelSubmit");
 const novelCancel = document.getElementById("novelCancel");
 
+function updateGenreVisibility() {
+    const isNovel = novelType.value === "Novel";
 
+    genreContainer.hidden = !isNovel;
+    novelGenre.required = isNovel;
+
+    if (!isNovel) {
+        novelGenre.value = "";
+    }
+}
+
+novelType.addEventListener("change", updateGenreVisibility);
 // LOAD NOVELS
 
 async function loadNovels() {
@@ -179,6 +173,7 @@ async function loadNovels() {
 
                     <p>Author: ${escapeHTML(data.author || "")}</p>
                     <p>Genre: ${escapeHTML(data.genre || "")}</p>
+                    <p>Writing Type: ${escapeHTML(data.type || "Not saved")}</p>
                     <p>Status: ${escapeHTML(data.status || "")}</p>
 
                     <p>
@@ -302,6 +297,7 @@ novelForm.addEventListener("submit", async event => {
         title: novelTitle.value.trim(),
         author: novelAuthor.value.trim(),
         genre: novelGenre.value.trim(),
+        type: novelType.value,
         status: novelStatus.value,
         description: novelDescription.value.trim(),
         instagram: novelInstagram.value.trim(),
@@ -921,3 +917,21 @@ const previousAuthListener = onAuthStateChanged;
 
 // Add this inside your existing onAuthStateChanged(user) block:
 // loadAuthors();
+ // ================= AUTH STATE =================
+
+onAuthStateChanged(auth, user => {
+    const loginBox = document.getElementById("loginBox");
+    const dashboard = document.getElementById("dashboard");
+
+    if (user) {
+        loginBox.style.display = "none";
+        dashboard.style.display = "block";
+
+        loadNovels();
+        loadSegments();
+        loadReviews();
+    } else {
+        loginBox.style.display = "block";
+        dashboard.style.display = "none";
+    }
+});
