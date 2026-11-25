@@ -290,13 +290,32 @@
                         required
                     >
 
-                    <input
-                        type="text"
-                        id="novelGenre"
-                        placeholder="Genre"
-                        required
-                    >
+               <!-- WRITING TYPE -->
+<select id="novelType" required>
+    <option value="">Select Writing Type</option>
+    <option value="Novel">Novel</option>
+    <option value="Poem">Poem</option>
+    <option value="Article">Article</option>
+    <option value="Novella">Novella</option>
+    <option value="Short Story">Short Story</option>
+</select>
 
+<!-- GENRE -->
+<div id="genreContainer" hidden>
+    <select id="novelGenre">
+        <option value="">Select Genre</option>
+        <option value="Mystery">Mystery</option>
+        <option value="Romance">Romance</option>
+        <option value="Fiction">Fiction</option>
+        <option value="Thriller">Thriller</option>
+        <option value="Dark Romance">Dark Romance</option>
+        <option value="Psychological Thriller">Psychological Thriller</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Horror">Horror</option>
+        <option value="Historical Fiction">Historical Fiction</option>
+        <option value="Other">Other</option>
+    </select>
+</div>
                     <select id="novelStatus" required>
                         <option value="">Select Status</option>
                         <option value="Completed">Completed</option>
